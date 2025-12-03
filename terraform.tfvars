@@ -1,0 +1,11 @@
+agent_pool_name = "systempool1"
+agent_pool_mode = "System"
+agent_pool_vm_size = "Standard_D4ds_v5"
+agent_pool_node_count = 3
+agent_pool_max_pods = 30
+os_disk_type = "Managed"
+aks_cluster_name = "my-aks-cluster"
+service_code_identifier = "internal-service"
+service_grade_tier = "L"
+resource_group_name = "my-aks-resource-group"
+target_subnet_id = "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.Network/virtualNetworks/my-vnet/subnets/my-subnet"
