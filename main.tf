@@ -55,7 +55,7 @@ resource "azapi_resource" "ask" {
         vmSize       = n.vmSize
         vnetSubnetID = "/subscriptions/c5eb1cc1-00ea-4381-9f3f-5e1c308db920/resourceGroups/poc-rg-prefix-01/providers/Microsoft.Network/virtualNetworks/poc-vn-prefix-01/subnets/${var.vnetSubnetName}"
         }]
-      dnsPrefix            = "poc-aks-prefix-${abbreviation}-01-${azapi_resource.resourceGroup.Name}"
+      dnsPrefix            = "poc-aks-prefix-${var.abbreviation}-01-${azapi_resource.resourceGroup.name}"
       enableRBAC           = true
       ingressProfile = {
         webAppRouting = {
@@ -107,13 +107,13 @@ resource "azapi_resource" "ask" {
   ignore_casing             = false
   ignore_null_property      = false
   location                  = "koreacentral"
-  name                      = "poc-aks-prefix-${abbreviation}-01"
+  name                      = "poc-aks-prefix-${var.abbreviation}-01"
   schema_validation_enabled = true
   tags = {
     Environment   = "dev"
     ProvisionedBy = "Terraform"
     Service       = var.serviceCode
     ServiceGrade  = var.serviceGrade
-    name          = self.name
+    name          = "poc-aks-prefix-${var.abbreviation}-01"
   }
 }
