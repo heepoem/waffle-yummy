@@ -9,6 +9,7 @@ terraform {
 provider "azapi" {}
 resource "azapi_resource" "resourceGroup" {
   type     = "Microsoft.Resources/resourceGroups@2025-04-01"
+  parent_id = "/subscriptions/c5eb1cc1-00ea-4381-9f3f-5e1c308db920"
   name                      = "poc-rg-prefix-${var.abbreviation}-01"
   location                  = "koreacentral"
   schema_validation_enabled = false
