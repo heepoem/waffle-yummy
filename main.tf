@@ -9,7 +9,7 @@ terraform {
 provider "azapi" {}
 resource "azapi_resource" "resourceGroup" {
   name                      = "poc-rg-prefix-${var.abbreviation}-01"
-  location                  = var.location
+  location                  = "koreacentral"
   schema_validation_enabled = false
   response_export_values    = ["*"]
 }
@@ -54,7 +54,7 @@ resource "azapi_resource" "ask" {
         vmSize       = n.vmSize
         vnetSubnetID = "/subscriptions/c5eb1cc1-00ea-4381-9f3f-5e1c308db920/resourceGroups/poc-rg-prefix-01/providers/Microsoft.Network/virtualNetworks/poc-vn-prefix-01/subnets/${var.vnetSubnetName}"
         }]
-      dnsPrefix            = "${var.name}-${var.resourceGroupName}"
+      dnsPrefix            = "poc-aks-prefix-${abbreviation}-01-${azapi_resource.resourceGroup.Name}"
       enableRBAC           = true
       ingressProfile = {
         webAppRouting = {
