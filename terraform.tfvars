@@ -1,7 +1,10 @@
+# Terraform variables for AKS deployment
 serviceCode = "sc00001"
 serviceGrade = "LL"
 abbreviation = "renee"
+vnetSubnetName = "default"
 
+# Agent pool profiles configuration
 agentPoolProfiles = [
   {
     name      = "systempool1"
@@ -17,5 +20,6 @@ agentPoolProfiles = [
     vmSize    = "Standard_D8ds_v5"
     count     = 1
     maxPods   = 110
+    osDiskType = null
   }
 ]
