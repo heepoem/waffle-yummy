@@ -1,4 +1,4 @@
-/ AKS agent pool profiles
+// AKS agent pool profiles
 variable "agentPoolProfiles" {
  description = "List of AKS agent pool profiles"
  type = list(object({
