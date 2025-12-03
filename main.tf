@@ -8,6 +8,7 @@ terraform {
 }
 provider "azapi" {}
 resource "azapi_resource" "resourceGroup" {
+  type     = "Microsoft.Resources/resourceGroups@2025-04-01"
   name                      = "poc-rg-prefix-${var.abbreviation}-01"
   location                  = "koreacentral"
   schema_validation_enabled = false
