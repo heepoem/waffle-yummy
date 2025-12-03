@@ -15,7 +15,7 @@ resource "azapi_resource" "resourceGroup" {
   response_export_values    = ["*"]
 }
 resource "azapi_resource" "ask" {
-  type      = "Microsoft.ContainerService/managedClusters@2023-04-02-preview"
+  type      = "Microsoft.ContainerService/managedClusters@2025-10-01"
   parent_id = azapi_resource.resourceGroup.id
   body = {
     kind = "Base"
@@ -59,7 +59,7 @@ resource "azapi_resource" "ask" {
       enableRBAC           = true
       ingressProfile = {
         webAppRouting = {
-          dnsZoneResourceIds = null
+          dnsZoneResourceId = null
           enabled            = true
           nginx = {
             defaultIngressControllerType = "internal"
