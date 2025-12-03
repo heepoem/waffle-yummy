@@ -15,7 +15,7 @@ resource "azapi_resource" "resourceGroup" {
   response_export_values    = ["*"]
 }
 resource "azapi_resource" "ask" {
-  type      = "Microsoft.ContainerService/managedClusters@2025-10-01"
+  type      = "Microsoft.ContainerService/managedClusters@2025-06-02-preview"
   parent_id = azapi_resource.resourceGroup.id
   body = {
     kind = "Base"
@@ -40,7 +40,7 @@ resource "azapi_resource" "ask" {
         }
       }
       apiServerAccessProfile = {
-        subnetID = "/subscriptions/c5eb1cc1-00ea-4381-9f3f-5e1c308db920/resourceGroups/poc-rg-prefix-01/providers/Microsoft.Network/virtualNetworks/poc-vn-prefix-01/subnets/${var.vnetSubnetName}"
+        subnetId = "/subscriptions/c5eb1cc1-00ea-4381-9f3f-5e1c308db920/resourceGroups/poc-rg-prefix-01/providers/Microsoft.Network/virtualNetworks/poc-vn-prefix-01/subnets/${var.vnetSubnetName}"
       }
       agentPoolProfiles = [for n in var.agentPoolProfiles : {
         availabilityZones      = ["1", "2", "3"]
@@ -59,7 +59,7 @@ resource "azapi_resource" "ask" {
       enableRBAC           = true
       ingressProfile = {
         webAppRouting = {
-          dnsZoneResourceId = null
+          dnsZoneResourceIds = null
           enabled            = true
           nginx = {
             defaultIngressControllerType = "internal"
