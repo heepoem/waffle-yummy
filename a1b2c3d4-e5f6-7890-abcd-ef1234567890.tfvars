@@ -1,21 +1,27 @@
-serviceCode = "sc00003"
-serviceGrade = "c"
+# Terraform Variables Configuration for AKS Deployment
+
+# Required variable values
+serviceCode = "sc7000"
+serviceGrade = "C"
+abbreviation = "mag"
+vnetSubnetName = "default"
+
+# Processed agentPoolProfiles structure derived from CSV inputs
 agentPoolProfiles = [
   {
-    name      = "systempool1"
+    name      = "nodepool1"
     mode      = "System"
-    vmSize    = "Standard_D4ds_v5"
-    count     = 1
+    vmSize    = "Standard_D8ds_v5"
+    count     = 30
     maxPods   = 110
     osDiskType = "Managed"
   },
   {
-    name      = "userpool1"
+    name      = "nodepool2"
     mode      = "User"
     vmSize    = "Standard_D4ds_v5"
-    count     = 1
+    count     = 50
     maxPods   = 110
+    osDiskType = "Managed"
   }
 ]
-abbreviation = "myk"
-vnetSubnetName = "default"
